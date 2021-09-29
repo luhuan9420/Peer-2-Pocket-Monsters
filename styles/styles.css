@@ -1,0 +1,1063 @@
+/*
+ 
+ ##          ###    ##    ##  #######  ##     ## ######## 
+ ##         ## ##    ##  ##  ##     ## ##     ##    ##    
+ ##        ##   ##    ####   ##     ## ##     ##    ##    
+ ##       ##     ##    ##    ##     ## ##     ##    ##    
+ ##       #########    ##    ##     ## ##     ##    ##    
+ ##       ##     ##    ##    ##     ## ##     ##    ##    
+ ######## ##     ##    ##     #######   #######     ##    
+ 
+*/
+/*
+ 
+ ######## ##    ## ########   #######   ######   ########     ###    ########  ##     ## ##    ## 
+    ##     ##  ##  ##     ## ##     ## ##    ##  ##     ##   ## ##   ##     ## ##     ##  ##  ##  
+    ##      ####   ##     ## ##     ## ##        ##     ##  ##   ##  ##     ## ##     ##   ####   
+    ##       ##    ########  ##     ## ##   #### ########  ##     ## ########  #########    ##    
+    ##       ##    ##        ##     ## ##    ##  ##   ##   ######### ##        ##     ##    ##    
+    ##       ##    ##        ##     ## ##    ##  ##    ##  ##     ## ##        ##     ##    ##    
+    ##       ##    ##         #######   ######   ##     ## ##     ## ##        ##     ##    ##    
+ 
+*/
+@font-face {
+  font-family: "pkmn_rbygsc";
+  src: url("/assets/fonts/PKMN RBYGSC/pkmn_rbygsc-webfont.woff2") format("woff2"), url("/assets/fonts/PKMN RBYGSC/pkmn_rbygsc-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "pokmon_dp_proregular";
+  src: url("/assets/fonts/PKMN DP/pokemon-dp-pro-webfont.woff2") format("woff2"), url("/assets/fonts/PKMN DP/pokemon-dp-pro-webfont.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*
+ 
+ #### ##    ## ########  ##     ## ########  ######  
+  ##  ###   ## ##     ## ##     ##    ##    ##    ## 
+  ##  ####  ## ##     ## ##     ##    ##    ##       
+  ##  ## ## ## ########  ##     ##    ##     ######  
+  ##  ##  #### ##        ##     ##    ##          ## 
+  ##  ##   ### ##        ##     ##    ##    ##    ## 
+ #### ##    ## ##         #######     ##     ######  
+ 
+*/
+/*
+ 
+    ###    ##    ## #### ##     ##    ###    ######## ####  #######  ##    ## 
+   ## ##   ###   ##  ##  ###   ###   ## ##      ##     ##  ##     ## ###   ## 
+  ##   ##  ####  ##  ##  #### ####  ##   ##     ##     ##  ##     ## ####  ## 
+ ##     ## ## ## ##  ##  ## ### ## ##     ##    ##     ##  ##     ## ## ## ## 
+ ######### ##  ####  ##  ##     ## #########    ##     ##  ##     ## ##  #### 
+ ##     ## ##   ###  ##  ##     ## ##     ##    ##     ##  ##     ## ##   ### 
+ ##     ## ##    ## #### ##     ## ##     ##    ##    ####  #######  ##    ## 
+ 
+*/
+@-webkit-keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 400px;
+  }
+}
+@keyframes slide {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 0 400px;
+  }
+}
+
+@keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes flickerAnimation {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes lightbulb {
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #fff;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 2 -5px 15px 5px, inset #909090 5px -13px 25px, #fff 1px 1px 1px;
+            box-shadow: rgba(0, 0, 0, 0.3) 2 -5px 15px 5px, inset #909090 5px -13px 25px, #fff 1px 1px 1px;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
+@keyframes lightbulb {
+  0% {
+    background-color: #fff;
+  }
+  50% {
+    background-color: #fff;
+    -webkit-box-shadow: rgba(0, 0, 0, 0.3) 2 -5px 15px 5px, inset #909090 5px -13px 25px, #fff 1px 1px 1px;
+            box-shadow: rgba(0, 0, 0, 0.3) 2 -5px 15px 5px, inset #909090 5px -13px 25px, #fff 1px 1px 1px;
+  }
+  100% {
+    background-color: #fff;
+  }
+}
+
+.light-flash {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #fff 0 2px 12px;
+          box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #fff 0 2px 12px;
+  -webkit-animation: lightbulb 1.2s both;
+          animation: lightbulb 1.2s both;
+}
+
+@-webkit-keyframes shake {
+  10%,
+  90% {
+    -webkit-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    -webkit-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translate3d(-4px, 0, 0);
+            transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    -webkit-transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, 0, 0);
+  }
+}
+
+@keyframes shake {
+  10%,
+  90% {
+    -webkit-transform: translate3d(-1px, 0, 0);
+            transform: translate3d(-1px, 0, 0);
+  }
+  20%,
+  80% {
+    -webkit-transform: translate3d(2px, 0, 0);
+            transform: translate3d(2px, 0, 0);
+  }
+  30%,
+  50%,
+  70% {
+    -webkit-transform: translate3d(-4px, 0, 0);
+            transform: translate3d(-4px, 0, 0);
+  }
+  40%,
+  60% {
+    -webkit-transform: translate3d(4px, 0, 0);
+            transform: translate3d(4px, 0, 0);
+  }
+}
+
+@-webkit-keyframes debuff-flash {
+  0% {
+    -webkit-filter: contrast(100%) brightness(100%) saturate(100%) hue-rotate(0deg);
+    filter: contrast(100%) brightness(100%) saturate(100%) hue-rotate(0deg);
+  }
+  50% {
+    -webkit-filter: contrast(50%) brightness(60%) saturate(450%) hue-rotate(30deg);
+    filter: contrast(50%) brightness(60%) saturate(450%) hue-rotate(30deg);
+  }
+  100% {
+    -webkit-filter: contrast(100%) brightness(100%) saturate(100%) hue-rotate(0deg);
+    filter: contrast(100%) brightness(100%) saturate(100%) hue-rotate(0deg);
+  }
+}
+
+@keyframes debuff-flash {
+  0% {
+    -webkit-filter: contrast(100%) brightness(100%) saturate(100%) hue-rotate(0deg);
+    filter: contrast(100%) brightness(100%) saturate(100%) hue-rotate(0deg);
+  }
+  50% {
+    -webkit-filter: contrast(50%) brightness(60%) saturate(450%) hue-rotate(30deg);
+    filter: contrast(50%) brightness(60%) saturate(450%) hue-rotate(30deg);
+  }
+  100% {
+    -webkit-filter: contrast(100%) brightness(100%) saturate(100%) hue-rotate(0deg);
+    filter: contrast(100%) brightness(100%) saturate(100%) hue-rotate(0deg);
+  }
+}
+
+@-webkit-keyframes color-flash {
+  0% {
+    -webkit-filter: saturate(100%);
+    /* Safari */
+    filter: saturate(100%);
+  }
+  50% {
+    -webkit-filter: saturate(350%);
+    /* Safari */
+    filter: saturate(350%);
+  }
+  100% {
+    -webkit-filter: saturate(100%);
+    /* Safari */
+    filter: saturate(100%);
+  }
+}
+
+@keyframes color-flash {
+  0% {
+    -webkit-filter: saturate(100%);
+    /* Safari */
+    filter: saturate(100%);
+  }
+  50% {
+    -webkit-filter: saturate(350%);
+    /* Safari */
+    filter: saturate(350%);
+  }
+  100% {
+    -webkit-filter: saturate(100%);
+    /* Safari */
+    filter: saturate(100%);
+  }
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font-family: "pokmon_dp_proregular";
+  font-size: 1.95em;
+}
+
+/*
+ 
+ ##          ###    ##    ##  #######  ##     ## ######## 
+ ##         ## ##    ##  ##  ##     ## ##     ##    ##    
+ ##        ##   ##    ####   ##     ## ##     ##    ##    
+ ##       ##     ##    ##    ##     ## ##     ##    ##    
+ ##       #########    ##    ##     ## ##     ##    ##    
+ ##       ##     ##    ##    ##     ## ##     ##    ##    
+ ######## ##     ##    ##     #######   #######     ##    
+ 
+*/
+#poke-container {
+  background-color: #030512;
+  background-image: url("https://www.transparenttextures.com/patterns/graphy.png");
+  -webkit-animation: slide 10s linear infinite;
+          animation: slide 10s linear infinite;
+  -webkit-transition: opacity 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: opacity 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+  min-height: 100vh;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+@media screen and (min-width: 992px) {
+  #poke-container {
+    height: 100%;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-flow: row wrap;
+            flex-flow: row wrap;
+  }
+}
+
+.columns {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  border: black solid;
+  border-width: 2px 0;
+}
+
+@media screen and (min-width: 992px) {
+  .columns {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 20%;
+            flex: 0 0 20%;
+    max-width: 20%;
+    border-width: 0 2px;
+  }
+}
+
+/*
+ 
+ ##        #######   ######   #### ##    ## 
+ ##       ##     ## ##    ##   ##  ###   ## 
+ ##       ##     ## ##         ##  ####  ## 
+ ##       ##     ## ##   ####  ##  ## ## ## 
+ ##       ##     ## ##    ##   ##  ##  #### 
+ ##       ##     ## ##    ##   ##  ##   ### 
+ ########  #######   ######   #### ##    ## 
+ 
+*/
+#login-menu {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: #030512;
+  opacity: 1;
+  background-image: url("https://www.transparenttextures.com/patterns/graphy.png");
+  -webkit-animation: slide 10s linear infinite;
+          animation: slide 10s linear infinite;
+  -webkit-transition: opacity 2.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: opacity 2.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#login-menu-title {
+  width: 100%;
+  border: #1fa792 3px solid;
+  padding: 4px 5px;
+  border-inline: 3px;
+  background-color: #001321;
+  margin: 15px 0 0;
+  color: white;
+  font-size: 1em;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  text-align: center;
+}
+
+@media screen and (min-width: 700px) {
+  #login-menu-title {
+    font-size: 2em;
+  }
+}
+
+#login-menu-modal {
+  margin: 0 auto auto;
+  padding: 5px 20px 20px;
+  width: 88%;
+  height: 75%;
+  -webkit-clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px), 0 15px);
+          clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px), 0 15px);
+  background: linear-gradient(132deg, rgba(16, 112, 160, 0.7) 0%, rgba(16, 112, 160, 0.7) 25%, rgba(0, 39, 68, 0.7) 26%, rgba(0, 39, 68, 0.7) 74%, rgba(16, 112, 160, 0.7) 75%, rgba(16, 112, 160, 0.7) 100%);
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  text-align: center;
+}
+
+@media screen and (min-width: 992px) {
+  #login-menu-modal {
+    width: 60%;
+  }
+}
+
+#login-menu-id-wrapper {
+  width: 100%;
+}
+
+#login-menu-battle-id {
+  width: 100%;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  text-align: center;
+}
+
+#login-menu-input-wrapper {
+  height: 1.3em;
+}
+
+#receiver-id-input {
+  height: 100%;
+  margin-bottom: 4px;
+}
+
+#login-monster-choice {
+  height: 100%;
+}
+
+#login-status {
+  font-size: 1.4em;
+  -webkit-animation: flickerAnimation 3.3s infinite;
+  animation: flickerAnimation 3.3s infinite;
+}
+
+#login-menu-submit {
+  width: 55%;
+  border: none;
+  background: #e2e2e2;
+  background: -webkit-gradient(linear, left bottom, left top, from(#e2e2e2), color-stop(43%, #e2e2e2), color-stop(43%, #eee), color-stop(57%, #eee), color-stop(57%, #fff));
+  background: linear-gradient(0deg, #e2e2e2 0%, #e2e2e2 43%, #eee 43%, #eee 57%, #fff 57%);
+  -webkit-clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px), 0 15px);
+          clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px), 0 15px);
+  height: 15%;
+  color: black;
+}
+
+@media screen and (min-width: 992px) {
+  #login-menu-submit {
+    width: 33%;
+  }
+}
+
+/*
+ 
+  ######  ##     ##    ###    ########    
+ ##    ## ##     ##   ## ##      ##       
+ ##       ##     ##  ##   ##     ##       
+ ##       ######### ##     ##    ##       
+ ##       ##     ## #########    ##       
+ ##    ## ##     ## ##     ##    ##       
+  ######  ##     ## ##     ##    ##       
+ 
+*/
+#chat-column {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column wrap;
+          flex-flow: column wrap;
+  color: white;
+  padding: 10px;
+}
+
+@media screen and (min-width: 992px) {
+  #chat-column {
+    height: 100%;
+  }
+}
+
+#room-info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.chat-row-item {
+  margin: 5px 0;
+}
+
+#chat-messages {
+  margin-bottom: 0px;
+  padding: 5px;
+  -webkit-box-flex: 0;
+      -ms-flex: none;
+          flex: none;
+  height: 10rem;
+  border: 1px black solid;
+  border-right: none;
+  background-color: #001321;
+  width: 100%;
+  overflow: auto;
+}
+
+@media screen and (min-width: 992px) {
+  #chat-messages {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    height: 100%;
+    height: 4rem;
+  }
+}
+
+.chat-send-messages {
+  margin: 6px 0;
+  overflow-wrap: break-word;
+}
+
+#chat-send-message {
+  margin-top: 0px;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+}
+
+#chat-send-message-input {
+  -webkit-box-flex: 2;
+      -ms-flex: 2 1;
+          flex: 2 1;
+  border: 0px;
+  -webkit-border-start: black 1px solid;
+          border-inline-start: black 1px solid;
+  -webkit-border-end: black 1px solid;
+          border-inline-end: black 1px solid;
+  -webkit-padding-start: 5px;
+          padding-inline-start: 5px;
+  -webkit-padding-end: 1px;
+          padding-inline-end: 1px;
+  line-height: 1.5;
+  min-width: 10px;
+}
+
+#chat-send-message-button {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 2;
+          flex: 1 2;
+  color: black;
+  background: #e2e2e2;
+  background: -webkit-gradient(linear, left bottom, left top, from(#e2e2e2), color-stop(43%, #e2e2e2), color-stop(43%, #eee), color-stop(57%, #eee), color-stop(57%, #fff));
+  background: linear-gradient(0deg, #e2e2e2 0%, #e2e2e2 43%, #eee 43%, #eee 57%, #fff 57%);
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+          clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+  line-height: 1.5;
+}
+
+/*
+ 
+ ########     ###    ######## ######## ##       ######## 
+ ##     ##   ## ##      ##       ##    ##       ##       
+ ##     ##  ##   ##     ##       ##    ##       ##       
+ ########  ##     ##    ##       ##    ##       ######   
+ ##     ## #########    ##       ##    ##       ##       
+ ##     ## ##     ##    ##       ##    ##       ##       
+ ########  ##     ##    ##       ##    ######## ######## 
+ 
+*/
+#battle-column {
+  height: 80vh;
+}
+
+@media screen and (min-width: 992px) {
+  #battle-column {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 60%;
+            flex: 0 0 60%;
+    max-width: 60%;
+    height: 100%;
+  }
+}
+
+#battle-controller {
+  width: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: 68% calc(100% - 68%);
+      grid-template-rows: 68% calc(100% - 68%);
+}
+
+#battle-scence {
+  background-image: url("/assets/img/grass_daytime_background.jpg");
+  background-size: cover;
+}
+
+#battle-scence-wrapper {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column nowrap;
+          flex-flow: column nowrap;
+}
+
+.battle-scence-column {
+  width: 100%;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+.battle-scence-column-players {
+  -webkit-box-flex: 5;
+      -ms-flex: 5;
+          flex: 5;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.battle-health-bar-wrapper {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+@media screen and (min-width: 992px) {
+  .battle-health-bar-wrapper {
+    -webkit-box-flex: 2;
+        -ms-flex: 2 1 auto;
+            flex: 2 1 auto;
+  }
+}
+
+.battle-health-bounding-box {
+  background-color: darkslategray;
+  height: 12px;
+  width: 155px;
+  border: solid 2px black;
+  border-radius: 15px;
+}
+
+@media screen and (min-width: 700px) {
+  .battle-health-bounding-box {
+    width: 275px;
+  }
+}
+
+.battle-health-bar-beam {
+  background: #e2e2e2;
+  background: -webkit-gradient(linear, left bottom, left top, from(#e2e2e2), color-stop(43%, #e2e2e2), color-stop(43%, #eee), color-stop(57%, #eee), color-stop(57%, #fff));
+  background: linear-gradient(0deg, #e2e2e2 0%, #e2e2e2 43%, #eee 43%, #eee 57%, #fff 57%);
+  -webkit-clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px), 0 15px);
+          clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px), 0 15px);
+  margin: 10px 0;
+  padding: 10px;
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+}
+
+@media screen and (min-width: 700px) {
+  .battle-health-bar-beam {
+    margin: 20px 0;
+    padding: 10px 20px;
+  }
+}
+
+#battle-health-bar-beam-opponent {
+  margin-left: 20px;
+}
+
+@media screen and (min-width: 700px) {
+  #battle-health-bar-beam-opponent {
+    margin-left: 60px;
+  }
+}
+
+#battle-health-bar-beam-player {
+  float: right;
+  margin-right: 20px;
+}
+
+@media screen and (min-width: 700px) {
+  #battle-health-bar-beam-player {
+    margin-right: 60px;
+  }
+}
+
+.battle-health-bar-player {
+  background-color: #00fd4f;
+  width: 100%;
+  height: calc(12px - 4px);
+  border-radius: 15px;
+  -webkit-transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.battle-health-bar-opponent {
+  background-color: #00fd4f;
+  width: 100%;
+  height: calc(12px - 4px);
+  border-radius: 15px;
+  -webkit-transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.battle-monster {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+}
+
+.battle-monster-wrapper {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+}
+
+.battle-monster-wrapper::after {
+  content: "";
+  -webkit-clip-path: ellipse(50% 10% at 50% 90%);
+  clip-path: ellipse(50% 10% at 50% 90%);
+  background: black;
+  position: absolute;
+  width: 98px;
+  height: 84px;
+  z-index: 1;
+  mix-blend-mode: soft-light;
+}
+
+@media screen and (min-width: 700px) {
+  .battle-monster-wrapper::after {
+    width: 220px;
+    height: 134px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .battle-monster-wrapper::after {
+    width: 12vw;
+    height: 17vh;
+  }
+}
+
+.battle-monster-sprite {
+  width: 125px;
+  z-index: 2;
+}
+
+@media screen and (min-width: 700px) {
+  .battle-monster-sprite {
+    width: 200px;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  .battle-monster-sprite {
+    width: 12vw;
+  }
+}
+
+.battle-monster-hurt {
+  -webkit-animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+          animation: shake 0.82s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
+}
+
+.battle-monster-debuff {
+  -webkit-animation: debuff-flash 1.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+          animation: debuff-flash 1.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  -webkit-filter: contrast(100%) brightness(100%) saturate(100%) hue-rotate(0deg);
+  filter: contrast(100%) brightness(100%) saturate(100%) hue-rotate(0deg);
+}
+
+.battle-monster-heal {
+  -webkit-animation: color-flash 1.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+          animation: color-flash 1.3s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+  -webkit-filter: saturate(100%);
+  filter: saturate(100%);
+}
+
+#pokeball-turn-indicator {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  opacity: 0.9;
+  -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+  -webkit-transition: -webkit-transform 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  transition: -webkit-transform 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  transition: transform 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+  transition: transform 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97), -webkit-transform 0.8s cubic-bezier(0.36, 0.07, 0.19, 0.97);
+}
+
+@media screen and (min-width: 700px) {
+  #pokeball-turn-indicator {
+    width: 75px;
+    height: 75px;
+  }
+}
+
+#login-ball-center {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #fff 0 2px 12px;
+          box-shadow: rgba(0, 0, 0, 0.2) 0 -1px 7px 1px, inset #808002 0 -1px 9px, #fff 0 2px 12px;
+  -webkit-animation: lightbulb 1.2s both;
+          animation: lightbulb 1.2s both;
+}
+
+#battle-controller-button-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  background-color: #4a4a4a;
+  background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+  border-top: black calc(2px * 2) solid;
+}
+
+.battle-controller-button {
+  width: 48%;
+  margin: calc((50% - 48%) / 2);
+  border: none;
+  background: #e2e2e2;
+  background: -webkit-gradient(linear, left bottom, left top, from(#e2e2e2), color-stop(43%, #e2e2e2), color-stop(43%, #eee), color-stop(57%, #eee), color-stop(57%, #fff));
+  background: linear-gradient(0deg, #e2e2e2 0%, #e2e2e2 43%, #eee 43%, #eee 57%, #fff 57%);
+  -webkit-clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px), 0 15px);
+          clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px), 0 15px);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row nowrap;
+          flex-flow: row nowrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.battle-controller-button:disabled,
+.battle-controller-button [disabled] {
+  opacity: 0.6;
+  cursor: default;
+}
+
+.battle-move-symbol {
+  width: 15%;
+  height: auto;
+}
+
+.battle-move-wrapper {
+  width: 50%;
+  text-align: left;
+}
+
+.battle-move-name {
+  font-size: 0.7em;
+}
+
+@media screen and (min-width: 992px) {
+  .battle-move-name {
+    font-size: 0.6em;
+    text-decoration: underline;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .battle-move-name {
+    font-size: 0.9em;
+    text-decoration: underline;
+  }
+}
+
+.battle-move-desc {
+  font-size: 0.4em;
+}
+
+@media screen and (min-width: 992px) {
+  .battle-move-desc {
+    font-size: 0.5em;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .battle-move-desc {
+    font-size: 0.7em;
+  }
+}
+
+/*
+ 
+  ######  ########    ###    ########  ######  
+ ##    ##    ##      ## ##      ##    ##    ## 
+ ##          ##     ##   ##     ##    ##       
+  ######     ##    ##     ##    ##     ######  
+       ##    ##    #########    ##          ## 
+ ##    ##    ##    ##     ##    ##    ##    ## 
+  ######     ##    ##     ##    ##     ######  
+ 
+*/
+#stats-column {
+  height: 100%;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+  -ms-grid-rows: 50% 50%;
+      grid-template-rows: 50% 50%;
+  color: white;
+}
+
+.stats-block {
+  padding: 4px;
+  margin: 20px 0 50px;
+}
+
+@media screen and (min-width: 992px) {
+  .stats-block {
+    margin: 0;
+  }
+}
+
+.stats-heading {
+  border: #1fa792 3px solid;
+  padding: 4px 5px;
+  border-inline: 3px;
+  background-color: #001321;
+  margin: 0 -6px;
+}
+
+#stats-column {
+  padding-top: 4px;
+}
+
+.stats-table {
+  min-height: 78%;
+  margin: 15px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: row wrap;
+          flex-flow: row wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-line-pack: distribute;
+      align-content: space-around;
+  -webkit-clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px), 0 15px);
+          clip-path: polygon(15px 0, calc(100% - 15px) 0, 100% 15px, 100% calc(100% - 15px), calc(100% - 15px) 100%, 15px 100%, 0 calc(100% - 15px), 0 15px);
+  background: rgba(8, 72, 112, 0.6);
+  background: linear-gradient(132deg, rgba(16, 112, 160, 0.7) 0%, rgba(16, 112, 160, 0.7) 25%, rgba(0, 39, 68, 0.7) 26%, rgba(0, 39, 68, 0.7) 74%, rgba(16, 112, 160, 0.7) 75%, rgba(16, 112, 160, 0.7) 100%);
+  font-size: 1.8rem;
+}
+
+@media screen and (min-width: 992px) {
+  .stats-table {
+    margin-bottom: 0;
+  }
+}
+
+.stats-row {
+  margin: 6px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 95px;
+}
+
+#red-login-panel,
+#white-login-panel {
+  position: fixed;
+  height: 50vh;
+  width: 100vw;
+  z-index: 100;
+  -webkit-transition: all 0.65s ease-in;
+  transition: all 0.65s ease-in;
+}
+
+#red-login-panel {
+  background: red;
+  top: -100vh;
+  border-bottom: black 55px solid;
+  z-index: 101;
+}
+
+#white-login-panel {
+  background: white;
+  bottom: -50vh;
+}
+
+#login-ball-wrap {
+  z-index: 101;
+  position: relative;
+  right: 0px;
+  bottom: 0px;
+  left: 50%;
+  top: 47.5vh;
+}
+
+#login-ball {
+  height: 200px;
+  width: 200px;
+  border-radius: 500px;
+  background: white;
+  right: 0px;
+  bottom: 0px;
+  left: 50%;
+  top: 50%;
+  margin-top: -100px;
+  margin-left: -100px;
+}
+
+#login-ball:after {
+  content: "";
+  z-index: -1;
+  border-radius: 500px;
+  position: relative;
+  background: black;
+  height: 270px;
+  width: 270px;
+  top: -35px;
+  left: -35px;
+  display: block;
+}
+/*# sourceMappingURL=styles.css.map */

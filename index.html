@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Peer-2-Pocket Monsters</title>
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="/styles/normalize.css">
+    <link rel="stylesheet" href="/styles/reset.css">
+    <link rel="stylesheet" href="/styles/styles.css">
+
+</head>
+
+<body onload="randombg()">
+
+    <!--
+ 
+ ##        #######   ######   #### ##    ## 
+ ##       ##     ## ##    ##   ##  ###   ## 
+ ##       ##     ## ##         ##  ####  ## 
+ ##       ##     ## ##   ####  ##  ## ## ## 
+ ##       ##     ## ##    ##   ##  ##  #### 
+ ##       ##     ## ##    ##   ##  ##   ### 
+ ########  #######   ######   #### ##    ## 
+ 
+-->
+    <div id="login-menu">
+        <h1 id="login-menu-title">Enter Your Partner's Battle ID and Choose a Pocket Monster!</h1>
+        <div id="login-menu-modal">
+            <div id="login-menu-id-wrapper">
+                <h2 id="login-menu-battle-id">Your Battle ID: <span id="room-key"></span></h2>
+                <div id="login-menu-input-wrapper">
+                    <input type="text" name="" id="receiver-id-input" autocomplete="off">
+                    <select name="" id="login-monster-choice">
+                        <!-- Options load in from monster library -->
+                    </select>
+                </div>
+            </div>
+            <div id="login-status"></div>
+            <button id="login-menu-submit">Battle!</button>
+        </div>
+    </div>
+
+    <div id="red-login-panel">
+        <div id="login-ball-wrap">
+            <div id="login-ball"></div>
+        </div>
+    </div>
+    <div id="white-login-panel">
+    </div>
+
+
+    <div id="poke-container">
+
+        <!--
+ 
+  ######  ##     ##    ###    ######## 
+ ##    ## ##     ##   ## ##      ##    
+ ##       ##     ##  ##   ##     ##    
+ ##       ######### ##     ##    ##    
+ ##       ##     ## #########    ##    
+ ##    ## ##     ## ##     ##    ##    
+  ######  ##     ## ##     ##    ##    
+ 
+-->
+        <div id="chat-column" class="columns">
+            <div class="chat-row-item">
+                <div id="room-info">
+                    <h1 id="room-id-label">Partner's ID:</h1>
+                    <h1 id="room-id-key-ingame">##########</h1>
+                </div>
+            </div>
+            <div id="chat-messages" class="chat-row-item">
+                <!-- Where text appears during chatting -->
+            </div>
+            <div id="chat-send-message" class="chat-row-item">
+                <input id="chat-send-message-input" type="text">
+                <button id="chat-send-message-button">Send</button>
+            </div>
+        </div>
+
+        <!--
+ 
+ ########     ###    ######## ######## ##       ######## 
+ ##     ##   ## ##      ##       ##    ##       ##       
+ ##     ##  ##   ##     ##       ##    ##       ##       
+ ########  ##     ##    ##       ##    ##       ######   
+ ##     ## #########    ##       ##    ##       ##       
+ ##     ## ##     ##    ##       ##    ##       ##       
+ ########  ##     ##    ##       ##    ######## ######## 
+ 
+-->
+        <div id="battle-column" class="columns">
+            <div id="battle-controller">
+                <div id="battle-scence">
+                    <div id="battle-scence-wrapper">
+                        <div class="battle-scence-column battle-scence-column-players">
+                            <div class="battle-health-bar-wrapper">
+                                <div class="battle-health-bar-beam" id="battle-health-bar-beam-opponent">
+                                    <h3 id="battle-monster-name-opponent">Health Bar</h3>
+                                    <div class="battle-health-bounding-box">
+                                        <!-- Currently unused -->
+                                        <!-- <div class="health-bar-red"></div>
+                                        <div class="health-bar-blue"></div> -->
+                                        <div class="battle-health-bar-opponent"></div>
+                                    </div>
+                                    <span id="battle-health-bar-value-opponent">100</span>/100
+                                </div>
+                            </div>
+                            <div class="battle-monster">
+                                <div class="battle-monster-wrapper">
+                                    <img class="battle-monster-sprite" id="battle-monster-sprite-opponent" src=""
+                                        alt="">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="battle-scence-column">
+                            <div id="pokeball-turn-indicator">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 700" x="0px" y="0px">
+                                    <style>
+                                        tspan {
+                                            white-space: pre
+                                        }
+
+                                        .shp0 {
+                                            fill: #000000
+                                        }
+
+                                        .shp1 {
+                                            fill: #ffffff
+                                        }
+
+                                        .shp2 {
+                                            fill: #ed1c24
+                                        }
+                                    </style>
+                                    <path id="Layer" class="shp0"
+                                        d="M350.18 699.64C156.63 699.64 0.18 543.19 0.18 349.64C0.18 156.09 156.63 -0.37 350.18 -0.37C543.73 -0.37 700.18 156.09 700.18 349.64C700.18 543.19 543.73 699.64 350.18 699.64Z" />
+                                    <g id="Layer">
+                                        <path id="Layer" fill-rule="evenodd" class="shp1"
+                                            d="M477.44 375.69C465.38 434.93 412.98 479.51 350.18 479.51C287.37 479.51 234.98 434.93 222.92 375.69L42.41 375.69C55.64 534.08 188.37 658.51 350.18 658.51C511.99 658.51 644.72 534.08 657.95 375.69L477.44 375.69Z" />
+                                        <path id="Layer" fill-rule="evenodd" class="shp1"
+                                            d="M441.06 349.64C441.06 399.83 400.37 440.52 350.18 440.52C299.99 440.52 259.3 399.83 259.3 349.64C259.3 299.44 299.99 258.76 350.18 258.76C400.37 258.76 441.06 299.44 441.06 349.64ZM395.01 349.64C395.01 324.88 374.94 304.8 350.18 304.8C325.42 304.8 305.34 324.88 305.34 349.64C305.34 374.4 325.42 394.47 350.18 394.47C374.94 394.47 395.01 374.4 395.01 349.64Z" />
+                                    </g>
+                                    <path id="Layer" fill-rule="evenodd" class="shp2"
+                                        d="M350.18 219.76C412.98 219.76 465.38 264.34 477.44 323.59L657.95 323.59C644.72 165.19 511.99 40.77 350.18 40.77C188.37 40.77 55.64 165.19 42.41 323.59L222.92 323.59C234.98 264.34 287.37 219.76 350.18 219.76Z" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div class="battle-scence-column battle-scence-column-players">
+                            <div class="battle-monster">
+                                <div class="battle-monster-wrapper">
+                                    <img class="battle-monster-sprite" id="battle-monster-sprite-player" src="" alt="">
+                                </div>
+                            </div>
+                            <div class="battle-health-bar-wrapper">
+                                <div class="battle-health-bar-beam" id="battle-health-bar-beam-player">
+                                    <h3 id="battle-monster-name-player">Health Bar</h3>
+                                    <div class="battle-health-bounding-box">
+                                        <div class="battle-health-bar-player"></div>
+                                    </div>
+                                    <span id="battle-health-bar-value-player">100</span>/100
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Icons made by Freepik from www.flaticon.com -->
+                <div id="battle-controller-button-wrapper">
+                    <button id="battle-move-0" class="battle-controller-button">
+                        <img class="battle-move-symbol" src="/assets/img/symbols/0.png" alt="">
+                        <div class="battle-move-wrapper">
+                            <h5 class="battle-move-name">Move 0</h5>
+                            <h6 class="battle-move-desc"><span id="battle-move0-power">&nbsp;</span></h6>
+                            <h6 class="battle-move-desc"><span id="battle-move0-accuracy">&nbsp;</span></h6>
+                            <h6 class="battle-move-desc"><span id="battle-move0-effect">&nbsp;</span></h6>
+                        </div>
+                    </button>
+                    <button id="battle-move-1" class="battle-controller-button">
+                        <img class="battle-move-symbol" src="/assets/img/symbols/0.png" alt="">
+                        <div class="battle-move-wrapper">
+                            <h5 class="battle-move-name">Move 0</h5>
+                            <h6 class="battle-move-desc"><span id="battle-move1-power">&nbsp;</span></h6>
+                            <h6 class="battle-move-desc"><span id="battle-move1-accuracy">&nbsp;</span></h6>
+                            <h6 class="battle-move-desc"><span id="battle-move1-effect">&nbsp;</span></h6>
+                        </div>
+                    </button>
+                    <button id="battle-move-2" class="battle-controller-button">
+                        <img class="battle-move-symbol" src="/assets/img/symbols/0.png" alt="">
+                        <div class="battle-move-wrapper">
+                            <h5 class="battle-move-name">Move 0</h5>
+                            <h6 class="battle-move-desc"><span id="battle-move2-power">&nbsp;</span></h6>
+                            <h6 class="battle-move-desc"><span id="battle-move2-accuracy">&nbsp;</span></h6>
+                            <h6 class="battle-move-desc"><span id="battle-move0-effect">&nbsp;</span></h6>
+                        </div>
+                    </button>
+                    <button id="battle-move-3" class="battle-controller-button">
+                        <img class="battle-move-symbol" src="/assets/img/symbols/0.png" alt="">
+                        <div class="battle-move-wrapper">
+                            <h5 class="battle-move-name">Move 0</h5>
+                            <h6 class="battle-move-desc"><span id="battle-move3-power">&nbsp;</span></h6>
+                            <h6 class="battle-move-desc"><span id="battle-move3-accuracy">&nbsp;</span></h6>
+                            <h6 class="battle-move-desc"><span id="battle-move3-effect">&nbsp;</span></h6>
+                        </div>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!--
+ 
+  ######  ########    ###    ########  ######  
+ ##    ##    ##      ## ##      ##    ##    ## 
+ ##          ##     ##   ##     ##    ##       
+  ######     ##    ##     ##    ##     ######  
+       ##    ##    #########    ##          ## 
+ ##    ##    ##    ##     ##    ##    ##    ## 
+  ######     ##    ##     ##    ##     ######  
+ 
+-->
+        <div id="stats-column" class="columns">
+            <div class="stats-block">
+                <h2 class="stats-heading">Opponent's Stats</h2>
+                <div class="stats-table">
+                    <div class="stats-row">
+                        <h4>HP</h4>
+                        <h4 class="stats-value-opponent" id="stats-HP-value-opponent">###</h4>
+                    </div>
+                    <div class="stats-row">
+                        <h4>AT</h4>
+                        <h4 class="stats-value-opponent" id="stats-AT-value-opponent">###</h4>
+                    </div>
+                    <div class="stats-row">
+                        <h4>DF</h4>
+                        <h4 class="stats-value-opponent" id="stats-DF-value-opponent">###</h4>
+                    </div>
+                    <div class="stats-row">
+                        <h4>AC</h4>
+                        <h4 class="stats-value-opponent" id="stats-AC-value-opponent">###</h4>
+                    </div>
+                    <div class="stats-row">
+                        <h4>EV</h4>
+                        <h4 class="stats-value-opponent" id="stats-EV-value-opponent">###</h4>
+                    </div>
+                    <div class="stats-row">
+                        <h4>SP</h4>
+                        <h4 class="stats-value-opponent" id="stats-SP-value-opponent">###</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="stats-block">
+                <h2 class="stats-heading">Your Stats</h2>
+                <div class="stats-table">
+                    <div class="stats-row">
+                        <h4>HP</h4>
+                        <h4 class="stats-value-player" id="stats-HP-value-player">###</h4>
+                    </div>
+                    <div class="stats-row">
+                        <h4>AT</h4>
+                        <h4 class="stats-value-player" id="stats-AT-value-player">###</h4>
+                    </div>
+                    <div class="stats-row">
+                        <h4>DF</h4>
+                        <h4 class="stats-value-player" id="stats-DF-value-player">###</h4>
+                    </div>
+                    <div class="stats-row">
+                        <h4>AC</h4>
+                        <h4 class="stats-value-player" id="stats-AC-value-player">###</h4>
+                    </div>
+                    <div class="stats-row">
+                        <h4>EV</h4>
+                        <h4 class="stats-value-player" id="stats-EV-value-player">###</h4>
+                    </div>
+                    <div class="stats-row">
+                        <h4>SP</h4>
+                        <h4 class="stats-value-player" id="stats-SP-value-player">###</h4>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Load JS files after DOM elements for performance -->
+    <script src="https://unpkg.com/peerjs@1.0.0/dist/peerjs.min.js"></script>
+    <script src="connect.js" type="module"></script>
+    <script src="randombg.js"></script>
+
+    <!-- Firebase Files -->
+    <script src="/__/firebase/7.5.2/firebase-app.js"></script>
+    <!-- TODO: Add SDKs for Firebase products that you want to use
+        https://firebase.google.com/docs/web/setup#available-libraries -->
+    <!-- Initialize Firebase -->
+    <script src="/__/firebase/init.js"></script>
+</body>
+
+</html>

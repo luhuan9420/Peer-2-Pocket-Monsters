@@ -1,0 +1,623 @@
+@import "_variables";
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: "pokmon_dp_proregular";
+    font-size: 1.95em;
+}
+
+/*
+ 
+ ##          ###    ##    ##  #######  ##     ## ######## 
+ ##         ## ##    ##  ##  ##     ## ##     ##    ##    
+ ##        ##   ##    ####   ##     ## ##     ##    ##    
+ ##       ##     ##    ##    ##     ## ##     ##    ##    
+ ##       #########    ##    ##     ## ##     ##    ##    
+ ##       ##     ##    ##    ##     ## ##     ##    ##    
+ ######## ##     ##    ##     #######   #######     ##    
+ 
+*/
+#poke-container {
+    // Background 1
+    // background-color: #333232;
+    // background-image: url("https://www.transparenttextures.com/patterns/grid-me.png");
+    // background-size: 25px;
+    // Background 2
+    background-color: #030512;
+    background-image: url("https://www.transparenttextures.com/patterns/graphy.png");
+    @include infinite-slide;
+    transition: opacity 3s cubic-bezier(0.165, 0.84, 0.44, 1);
+    // background-size: 48px;
+    min-height: 100vh;
+
+    width: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+
+    @media screen and (min-width: $desktop-min-width) {
+        height: 100%;
+        flex-flow: row wrap;
+    }
+}
+
+.columns {
+    display: flex;
+    width: 100%;
+    border: black solid;
+    border-width: $battle-column-border-width 0;
+
+    @media screen and (min-width: $desktop-min-width) {
+        flex: 0 0 $column-width;
+        max-width: $column-width;
+        border-width: 0 $battle-column-border-width;
+    }
+}
+
+/*
+ 
+ ##        #######   ######   #### ##    ## 
+ ##       ##     ## ##    ##   ##  ###   ## 
+ ##       ##     ## ##         ##  ####  ## 
+ ##       ##     ## ##   ####  ##  ## ## ## 
+ ##       ##     ## ##    ##   ##  ##  #### 
+ ##       ##     ## ##    ##   ##  ##   ### 
+ ########  #######   ######   #### ##    ## 
+ 
+*/
+
+// Perfect Full-Page Modal example from https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal
+#login-menu {
+    display: flex;
+    flex-flow: row wrap;
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: #030512;
+    opacity: 1;
+    // Moving background slide
+    background-image: url("https://www.transparenttextures.com/patterns/graphy.png");
+    @include infinite-slide;
+    transition: opacity 2.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#login-menu-title {
+    width: 100%;
+    @include header-banner;
+    margin: 15px 0 0;
+    color: white;
+    font-size: 1em;
+    height: min-content;
+    text-align: center;
+    @media screen and (min-width: $tablet-min-width) {
+        font-size: 2em;
+    }
+}
+
+#login-menu-modal {
+    margin: 0 auto auto;
+    padding: 5px 20px 20px;
+    width: 88%;
+    height: 75%;
+    @include angled-corners;
+    background: linear-gradient(
+        132deg,
+        rgba(16, 112, 160, 0.7) 0%,
+        rgba(16, 112, 160, 0.7) 25%,
+        rgba(0, 39, 68, 0.7) 26%,
+        rgba(0, 39, 68, 0.7) 74%,
+        rgba(16, 112, 160, 0.7) 75%,
+        rgba(16, 112, 160, 0.7) 100%
+    );
+    color: white;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+    text-align: center;
+    @media screen and (min-width: $desktop-min-width) {
+        width: 60%;
+    }
+}
+
+#login-menu-id-wrapper {
+    width: 100%;
+}
+
+#login-menu-battle-id {
+    width: 100%;
+    height: min-content;
+    text-align: center;
+}
+
+#login-menu-input-wrapper {
+    height: 1.3em;
+}
+
+#receiver-id-input {
+    height: 100%;
+    margin-bottom: 4px;
+}
+
+#login-monster-choice {
+    height: 100%;
+}
+
+#login-status {
+    font-size: 1.4em;
+    @include animate-flicker;
+}
+
+#login-menu-submit {
+    width: 55%;
+    border: none;
+    @include grey-gradient-button;
+    @include angled-corners;
+    height: 15%;
+    color: black;
+    @media screen and (min-width: $desktop-min-width) {
+        width: 33%;
+    }
+}
+
+/*
+ 
+  ######  ##     ##    ###    ########    
+ ##    ## ##     ##   ## ##      ##       
+ ##       ##     ##  ##   ##     ##       
+ ##       ######### ##     ##    ##       
+ ##       ##     ## #########    ##       
+ ##    ## ##     ## ##     ##    ##       
+  ######  ##     ## ##     ##    ##       
+ 
+*/
+#chat-column {
+    flex-flow: column wrap;
+    color: white;
+    padding: 10px;
+    @media screen and (min-width: $desktop-min-width) {
+        height: 100%;
+    }
+}
+
+// Room ID
+#room-info {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+}
+
+#room-id-label {
+}
+
+#room-id-key {
+}
+
+.chat-row-item {
+    margin: 5px 0;
+}
+
+#chat-messages {
+    margin-bottom: 0px;
+    padding: 5px;
+    flex: none;
+    height: 10rem;
+    border: 1px black solid;
+    border-right: none;
+    background-color: #001321;
+    width: 100%;
+
+    overflow: auto;
+    @media screen and (min-width: $desktop-min-width) {
+        flex: 1;
+        height: 100%;
+        height: 4rem;
+    }
+}
+
+.chat-send-messages {
+    margin: 6px 0;
+    overflow-wrap: break-word;
+}
+
+#chat-send-message {
+    margin-top: 0px;
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#chat-send-message-input {
+    flex: 2 1;
+    border: 0px;
+    border-inline-start: black 1px solid;
+    border-inline-end: black 1px solid;
+    padding-inline-start: 5px;
+    padding-inline-end: 1px;
+    line-height: $chat-input-line-height;
+    min-width: 10px;
+}
+
+#chat-send-message-button {
+    flex: 1 2;
+    color: black;
+    @include grey-gradient-button;
+    clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), calc(100% - 10px) 100%, 0 100%);
+    line-height: $chat-input-line-height;
+}
+
+/*
+ 
+ ########     ###    ######## ######## ##       ######## 
+ ##     ##   ## ##      ##       ##    ##       ##       
+ ##     ##  ##   ##     ##       ##    ##       ##       
+ ########  ##     ##    ##       ##    ##       ######   
+ ##     ## #########    ##       ##    ##       ##       
+ ##     ## ##     ##    ##       ##    ##       ##       
+ ########  ##     ##    ##       ##    ######## ######## 
+ 
+*/
+#battle-column {
+    height: 80vh;
+
+    @media screen and (min-width: $desktop-min-width) {
+        flex: 0 0 $battle-column-width;
+        max-width: $battle-column-width;
+        height: 100%;
+    }
+}
+
+#battle-controller {
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: $battle-controller-scene-height calc(100% - #{$battle-controller-scene-height});
+}
+
+// Visuals
+#battle-scence {
+    background-image: url("/assets/img/grass_daytime_background.jpg");
+    background-size: cover;
+    //background: repeating-linear-gradient(#c0e8e0, #c0e8e0 5px, #d8eee0 5px, #d8eee0 8px);
+}
+
+#battle-scence-wrapper {
+    height: 100%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.battle-scence-column {
+    width: 100%;
+    flex: 1 1 auto;
+}
+
+.battle-scence-column-players {
+    flex: 5;
+    display: flex;
+}
+
+// Health Bar
+.battle-health-bar-wrapper {
+    flex: 1 1 auto;
+
+    @media screen and (min-width: $desktop-min-width) {
+        flex: 2 1 auto;
+    }
+}
+
+.battle-health-bounding-box {
+    background-color: darkslategray;
+    height: $battle-health-bar-height;
+    width: 155px;
+    border: solid 2px black;
+    border-radius: $battle-health-bar-roundness;
+
+    @media screen and (min-width: $tablet-min-width) {
+        width: 275px;
+    }
+}
+
+.battle-health-bar-beam {
+    @include grey-gradient-button;
+    @include angled-corners;
+    margin: 10px 0;
+    padding: 10px;
+    width: min-content;
+    @media screen and (min-width: $tablet-min-width) {
+        margin: 20px 0;
+        padding: 10px 20px;
+    }
+}
+
+#battle-health-bar-beam-opponent {
+    margin-left: 20px;
+    @media screen and (min-width: $tablet-min-width) {
+        margin-left: 60px;
+    }
+}
+
+#battle-health-bar-beam-player {
+    float: right;
+    margin-right: 20px;
+    @media screen and (min-width: $tablet-min-width) {
+        margin-right: 60px;
+    }
+}
+
+.battle-health-bar-player {
+    background-color: #00fd4f;
+    width: 100%;
+    height: calc(#{$battle-health-bar-height} - 4px);
+    border-radius: $battle-health-bar-roundness;
+    transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.battle-health-bar-opponent {
+    background-color: #00fd4f;
+    width: 100%;
+    height: calc(#{$battle-health-bar-height} - 4px);
+    border-radius: $battle-health-bar-roundness;
+    transition: width 1s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+// Monster Sprite
+.battle-monster {
+    flex: 2;
+}
+
+.battle-monster-wrapper {
+    height: 100%;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.battle-monster-wrapper::after {
+    content: "";
+    -webkit-clip-path: ellipse(50% 10% at 50% 90%);
+    clip-path: ellipse(50% 10% at 50% 90%);
+    background: black;
+    position: absolute;
+    width: 98px;
+    height: 84px;
+    z-index: 1;
+    mix-blend-mode: soft-light;
+    @media screen and (min-width: $tablet-min-width) {
+        width: 220px;
+        height: 134px;
+    }
+    @media screen and (min-width: $desktop-min-width) {
+        width: 12vw;
+        height: 17vh;
+    }
+}
+
+.battle-monster-sprite {
+    width: 125px;
+    z-index: 2;
+
+    @media screen and (min-width: $tablet-min-width) {
+        width: 200px;
+    }
+
+    @media screen and (min-width: $desktop-min-width) {
+        width: 12vw;
+    }
+}
+
+.battle-monster-hurt {
+    @include monster-shake;
+}
+
+.battle-monster-debuff {
+    @include monster-debuff;
+}
+
+.battle-monster-heal {
+    @include monster-heal;
+}
+
+#pokeball-turn-indicator {
+    width: 50px;
+    height: 50px;
+    margin: auto;
+    opacity: 0.9;
+    @media screen and (min-width: $tablet-min-width) {
+        width: 75px;
+        height: 75px;
+    }
+    transform: rotate(0deg);
+    @include ball-turn;
+}
+
+#login-ball-center {
+    @include light-up;
+}
+
+// Buttons
+#battle-controller-button-wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #4a4a4a;
+    background-image: url("https://www.transparenttextures.com/patterns/carbon-fibre.png");
+    border-top: black calc(#{$battle-column-border-width} * 2) solid;
+}
+
+.battle-controller-button {
+    @include battle-controller-button-width;
+    border: none;
+    @include grey-gradient-button;
+    @include angled-corners;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+
+    &:disabled,
+    [disabled] {
+        opacity: 0.6;
+        cursor: default;
+    }
+}
+
+.battle-move-symbol {
+    width: 15%;
+    height: auto;
+}
+
+.battle-move-wrapper {
+    width: 50%;
+    text-align: left;
+}
+
+.battle-move-name {
+    font-size: 0.7em;
+    @media screen and (min-width: $desktop-min-width) {
+        font-size: 0.6em;
+        text-decoration: underline;
+    }
+    @media screen and (min-width: 1400px) {
+        font-size: 0.9em;
+        text-decoration: underline;
+    }
+}
+
+.battle-move-desc {
+    font-size: 0.4em;
+    @media screen and (min-width: $desktop-min-width) {
+        font-size: 0.5em;
+    }
+    @media screen and (min-width: 1400px) {
+        font-size: 0.7em;
+    }
+}
+
+/*
+ 
+  ######  ########    ###    ########  ######  
+ ##    ##    ##      ## ##      ##    ##    ## 
+ ##          ##     ##   ##     ##    ##       
+  ######     ##    ##     ##    ##     ######  
+       ##    ##    #########    ##          ## 
+ ##    ##    ##    ##     ##    ##    ##    ## 
+  ######     ##    ##     ##    ##     ######  
+ 
+*/
+#stats-column {
+    height: 100%;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: 50% 50%;
+    color: white;
+}
+
+.stats-block {
+    padding: 4px;
+    margin: 20px 0 50px;
+
+    @media screen and (min-width: $desktop-min-width) {
+        margin: 0;
+    }
+}
+
+.stats-heading {
+    @include header-banner;
+    margin: 0 -6px;
+}
+
+#stats-column {
+    padding-top: 4px;
+}
+
+.stats-table {
+    min-height: 78%;
+    margin: 15px 15px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-content: space-around;
+    @include angled-corners;
+    background: rgba(8, 72, 112, 0.6);
+    background: linear-gradient(
+        132deg,
+        rgba(16, 112, 160, 0.7) 0%,
+        rgba(16, 112, 160, 0.7) 25%,
+        rgba(0, 39, 68, 0.7) 26%,
+        rgba(0, 39, 68, 0.7) 74%,
+        rgba(16, 112, 160, 0.7) 75%,
+        rgba(16, 112, 160, 0.7) 100%
+    );
+    font-size: 1.8rem;
+    @media screen and (min-width: $desktop-min-width) {
+        margin-bottom: 0;
+    }
+}
+
+.stats-row {
+    margin: 6px;
+    display: flex;
+    justify-content: space-evenly;
+    width: 95px;
+}
+
+#red-login-panel,
+#white-login-panel {
+    position: fixed;
+    height: 50vh;
+    width: 100vw;
+    z-index: 100;
+    transition: all 0.65s ease-in;
+}
+
+#red-login-panel {
+    background: red;
+    top: -100vh;
+    border-bottom: black 55px solid;
+    z-index: 101;
+}
+#white-login-panel {
+    background: white;
+    bottom: -50vh;
+}
+
+#login-ball-wrap {
+    z-index: 101;
+    position: relative;
+    right: 0px;
+    bottom: 0px;
+    left: 50%;
+    top: 47.5vh;
+}
+#login-ball {
+    height: 200px;
+    width: 200px;
+    border-radius: 500px;
+    background: white;
+    right: 0px;
+    bottom: 0px;
+    left: 50%;
+    top: 50%;
+    margin-top: -100px;
+    margin-left: -100px;
+    &:after {
+        content: "";
+        z-index: -1;
+        border-radius: 500px;
+        position: relative;
+        background: black;
+        height: 270px;
+        width: 270px;
+        top: -35px;
+        left: -35px;
+        display: block;
+    }
+}
